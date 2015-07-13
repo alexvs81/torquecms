@@ -75,6 +75,11 @@ class DB {
                     return $this;
                 }
             }
+        } else {
+            $sql = "{$action} FROM {$table}";
+            if( !$this->query( $sql )->error() ){
+                return $this;
+            }
         }
         return false;
     }
@@ -123,7 +128,7 @@ class DB {
         return false;
     }
 
-    public function get( $table, $where ){
+    public function get( $table, $where = array() ){
         return $this->action( 'SELECT *', $table, $where );
     }
 

@@ -14,3 +14,7 @@ require_once( 'torque/includes/defines.php' );
 
 require_once( TORQUE.DS.'init.php' );
 
+$db = DB::getInstance()->get('torque_test');
+
+echo '<pre>';
+var_dump($db->results());
